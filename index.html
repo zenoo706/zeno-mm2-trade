@@ -1,229 +1,183 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Zeno MM2 Trade</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,sans-serif;
+background:#050505;
+color:#fff;
+overflow-x:hidden
+}
+:root{--gold:#ffd21a;--dark:#0d0d0d;--line:#252525;--muted:#888}
+
+nav{
+position:sticky;top:0;z-index:100;
+height:76px;padding:0 6%;
+display:flex;align-items:center;justify-content:space-between;
+background:rgba(5,5,5,.92);
+backdrop-filter:blur(15px);
+border-bottom:1px solid var(--line)
+}
+.logo{
+font-size:25px;font-weight:1000;color:var(--gold);
+letter-spacing:2px;text-shadow:0 0 25px #ffd21a55
+}
+.logo span{display:block;font-size:8px;color:#aaa;letter-spacing:5px;text-align:center}
+nav .links{display:flex;gap:25px}
+nav a{color:#aaa;text-decoration:none;font-size:14px;font-weight:bold}
+nav a:hover{color:var(--gold)}
+.login{
+border:1px solid #665600;padding:11px 18px;border-radius:10px;
+color:var(--gold)!important
 }
 
-body {
-  background: #050607;
-  color: white;
+.hero{
+min-height:650px;display:flex;align-items:center;justify-content:center;
+text-align:center;padding:80px 20px;
+background:
+radial-gradient(circle at 50% 25%,#594800 0,transparent 25%),
+radial-gradient(circle at 50% 50%,#171300 0,transparent 55%)
+}
+.hero-content{max-width:900px}
+.badge{
+display:inline-block;padding:9px 18px;border:1px solid #655500;
+border-radius:30px;color:var(--gold);font-size:12px;margin-bottom:25px;
+background:#151200
+}
+h1{font-size:76px;line-height:1;font-weight:1000;letter-spacing:-4px}
+h1 span{color:var(--gold);text-shadow:0 0 35px #ffd21a33}
+.hero p{max-width:650px;margin:25px auto;color:#999;line-height:1.8;font-size:17px}
+.buttons{display:flex;justify-content:center;gap:14px}
+.btn{
+padding:15px 27px;border-radius:12px;text-decoration:none;font-weight:bold;
+transition:.2s;display:inline-block
+}
+.primary{background:var(--gold);color:#000}
+.secondary{border:1px solid #383838;color:#fff;background:#101010}
+.btn:hover{transform:translateY(-3px)}
+
+.stats{
+max-width:1050px;margin:-45px auto 0;padding:0 20px;
+display:grid;grid-template-columns:repeat(3,1fr);gap:15px;
+position:relative
+}
+.stat{
+background:#0e0e0e;border:1px solid var(--line);border-radius:17px;
+padding:25px;text-align:center
+}
+.stat b{display:block;color:var(--gold);font-size:28px;margin-bottom:7px}
+.stat small{color:#777}
+
+section{max-width:1200px;margin:auto;padding:90px 20px}
+.heading{text-align:center;margin-bottom:40px}
+.heading h2{font-size:35px;margin-bottom:10px}
+.heading h2 span{color:var(--gold)}
+.heading p{color:#777}
+
+.tools{
+display:grid;grid-template-columns:repeat(4,1fr);gap:15px
+}
+.tool{
+background:linear-gradient(145deg,#121212,#090909);
+border:1px solid var(--line);border-radius:17px;padding:27px;
+transition:.25s
+}
+.tool:hover{border-color:#806900;transform:translateY(-5px)}
+.tool .icon{font-size:30px;margin-bottom:18px}
+.tool h3{margin-bottom:9px}
+.tool p{color:#777;line-height:1.6;font-size:14px}
+
+.searchbox{
+max-width:600px;margin:0 auto 35px;display:flex;gap:10px
+}
+.searchbox input{
+flex:1;background:#101010;border:1px solid #333;
+padding:15px;border-radius:11px;color:white;outline:none
+}
+.searchbox input:focus{border-color:var(--gold)}
+
+.items{
+display:grid;grid-template-columns:repeat(4,1fr);gap:15px
+}
+.item{
+background:#0e0e0e;border:1px solid var(--line);border-radius:17px;
+padding:20px;text-align:center;transition:.2s
+}
+.item:hover{border-color:#806900}
+.weapon{
+height:105px;display:flex;align-items:center;justify-content:center;
+font-size:55px;margin-bottom:10px
+}
+.item h3{margin-bottom:12px}
+.unavailable{
+display:block;padding:8px;border-radius:8px;
+background:#1a1a1a;color:#777;font-size:12px;font-weight:bold
 }
 
-/* NAVBAR */
-nav {
-  height: 78px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 6%;
-  background: #080909;
-  border-bottom: 1px solid #292929;
+.calc{
+max-width:850px;margin:auto;background:#0e0e0e;
+border:1px solid var(--line);border-radius:22px;padding:30px
+}
+.calcgrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.calcbox{background:#090909;border:1px solid #252525;border-radius:15px;padding:20px}
+.calcbox h3{margin-bottom:15px}
+.calcbox input{
+width:100%;padding:14px;background:#111;border:1px solid #333;
+border-radius:10px;color:white;outline:none
+}
+.calc button{
+margin-top:20px;width:100%;padding:15px;border:0;
+border-radius:11px;background:var(--gold);font-weight:bold;cursor:pointer
+}
+.result{
+margin-top:18px;text-align:center;padding:18px;border-radius:12px;
+background:#151515;color:var(--gold);font-size:22px;font-weight:bold
 }
 
-.logo {
-  color: #ffd21a;
-  font-size: 28px;
-  font-weight: 900;
-  letter-spacing: 1px;
+.trade{
+display:grid;grid-template-columns:1fr 80px 1fr;gap:15px;align-items:center
+}
+.tradebox{
+min-height:210px;background:#0e0e0e;border:1px solid var(--line);
+border-radius:20px;padding:25px
+}
+.tradebox h3{color:var(--gold);margin-bottom:20px}
+.plus{
+height:60px;width:60px;border-radius:50%;background:var(--gold);
+color:#000;display:flex;align-items:center;justify-content:center;
+font-size:28px;font-weight:bold;margin:auto
 }
 
-.logo small {
-  display: block;
-  color: white;
-  font-size: 10px;
-  text-align: center;
-  letter-spacing: 3px;
+.cta{
+text-align:center;border:1px solid #4e4200;border-radius:25px;
+background:radial-gradient(circle,#211b00,#0c0c0c);
+padding:60px 20px
 }
+.cta h2{font-size:40px;margin-bottom:15px}
+.cta p{color:#888;margin-bottom:25px}
 
-.links {
-  display: flex;
-  gap: 28px;
+footer{
+border-top:1px solid var(--line);padding:35px 20px;
+text-align:center;color:#666
 }
+footer strong{color:var(--gold)}
 
-.links a {
-  color: #bbb;
-  text-decoration: none;
-  font-weight: bold;
+@media(max-width:900px){
+nav .links{display:none}
+h1{font-size:52px}
+.tools,.items{grid-template-columns:repeat(2,1fr)}
 }
-
-.links a:hover {
-  color: #ffd21a;
-}
-
-.login {
-  border: 1px solid #ffd21a;
-  padding: 11px 20px;
-  border-radius: 10px;
-  color: #ffd21a;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 95px 20px 75px;
-  background:
-    radial-gradient(circle at center, #3b3000 0%, #101010 35%, #050607 75%);
-}
-
-.badge {
-  display: inline-block;
-  padding: 9px 18px;
-  border: 1px solid #5c4a00;
-  border-radius: 30px;
-  color: #ffd21a;
-  margin-bottom: 25px;
-  font-size: 13px;
-}
-
-.hero h1 {
-  font-size: 65px;
-  font-weight: 900;
-}
-
-.hero h1 span {
-  color: #ffd21a;
-}
-
-.hero p {
-  max-width: 650px;
-  margin: 20px auto 30px;
-  color: #999;
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.primary,
-.secondary {
-  padding: 15px 28px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.primary {
-  background: #ffd21a;
-  color: #000;
-}
-
-.secondary {
-  border: 1px solid #444;
-  color: white;
-}
-
-/* WEAPONS */
-.weapons {
-  max-width: 1250px;
-  margin: auto;
-  padding: 55px 20px 80px;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.section-title h2 {
-  color: #ffd21a;
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.section-title p {
-  color: #777;
-}
-
-.weapon-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.weapon {
-  background: #101111;
-  border: 1px solid #292929;
-  border-radius: 15px;
-  padding: 22px;
-  text-align: center;
-  transition: .2s;
-}
-
-.weapon:hover {
-  transform: translateY(-5px);
-  border-color: #ffd21a;
-}
-
-.weapon-icon {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 65px;
-  margin-bottom: 12px;
-}
-
-.weapon h3 {
-  margin-bottom: 12px;
-}
-
-.unavailable {
-  display: inline-block;
-  width: 100%;
-  padding: 9px;
-  border-radius: 8px;
-  background: #1c1f21;
-  color: #aaa;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-/* FOOTER */
-footer {
-  border-top: 1px solid #242424;
-  text-align: center;
-  padding: 30px;
-  color: #666;
-}
-
-footer strong {
-  color: #ffd21a;
-}
-
-@media(max-width:900px) {
-  .weapon-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .links {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 45px;
-  }
-}
-
-@media(max-width:550px) {
-  .weapon-grid {
-    grid-template-columns: 1fr;
-  }
+@media(max-width:600px){
+.stats,.calcgrid,.trade{grid-template-columns:1fr}
+.tools,.items{grid-template-columns:1fr}
+.plus{margin:5px auto}
+h1{font-size:40px}
 }
 </style>
 </head>
@@ -231,201 +185,170 @@ footer strong {
 <body>
 
 <nav>
-  <div class="logo">
-    ZENO
-    <small>MM2 TRADE</small>
-  </div>
-
-  <div class="links">
-    <a href="index.html">الرئيسية</a>
-    <a href="#">التجارة</a>
-    <a href="#">القيم</a>
-    <a href="calculator.html">حاسبة التداول</a>
-    <a href="#">المستخدمين</a>
-  </div>
-
-  <a class="login" href="#">تسجيل الدخول 👤</a>
+<div class="logo">ZENO<span>MM2 TRADE</span></div>
+<div class="links">
+<a href="#home">الرئيسية</a>
+<a href="#trade">Trade</a>
+<a href="#items">القيم</a>
+<a href="#calculator">الحاسبة</a>
+<a href="#community">المجتمع</a>
+</div>
+<a class="login" href="#community">تسجيل الدخول</a>
 </nav>
 
-<section class="hero">
+<header class="hero" id="home">
+<div class="hero-content">
+<div class="badge">✦ ZENO MM2 TRADING HUB</div>
+<h1>TRADE <span>SMARTER.</span><br>TRADE WITH ZENO.</h1>
+<p>
+منصة Zeno MM2 الجديدة للتداول واستعراض القيم
+والعثور على أفضل فرص التبادل.
+</p>
+<div class="buttons">
+<a class="btn primary" href="#trade">ابدأ التداول →</a>
+<a class="btn secondary" href="#items">استعرض الأدوات</a>
+</div>
+</div>
+</header>
 
-  <div class="badge">✦ THE NEW MM2 TRADING HUB</div>
+<div class="stats">
+<div class="stat"><b>24+</b><small>أداة معروضة</small></div>
+<div class="stat"><b>0</b><small>أدوات متوفرة حاليًا</small></div>
+<div class="stat"><b>ZENO</b><small>Trading Platform</small></div>
+</div>
 
-  <h1>
-    ZENO <span>MM2 TRADE</span>
-  </h1>
+<section>
+<div class="heading">
+<h2>كل شيء تحتاجه في <span>Zeno</span></h2>
+<p>أدوات مصممة خصيصًا لتجربة تداول أفضل.</p>
+</div>
 
-  <p>
-    المكان الأفضل للتجارة، معرفة القيم، والبحث عن المتداولين.
-  </p>
-
-  <div class="buttons">
-    <a class="primary" href="#">ابدأ التداول →</a>
-    <a class="secondary" href="#">عرض القيم</a>
-  </div>
-
+<div class="tools">
+<div class="tool"><div class="icon">🤝</div><h3>Trade</h3><p>أنشئ عروض تداول واعثر على متداولين.</p></div>
+<div class="tool"><div class="icon">⚖️</div><h3>Calculator</h3><p>قارن قيمة عرضك مع العرض الآخر.</p></div>
+<div class="tool"><div class="icon">💎</div><h3>Values</h3><p>تصفح قائمة الأدوات والقيم.</p></div>
+<div class="tool"><div class="icon">🔎</div><h3>Search</h3><p>ابحث بسرعة عن أي أداة.</p></div>
+</div>
 </section>
 
-<section class="weapons">
+<section id="items">
+<div class="heading">
+<h2>MM2 <span>Items</span></h2>
+<p>جميع الأدوات حاليًا غير متوفرة للتداول.</p>
+</div>
 
-  <div class="section-title">
-    <h2>— جميع الأسلحة —</h2>
-    <p>أسلحة MM2 المعروضة في Zeno Trade</p>
-  </div>
+<div class="searchbox">
+<input id="search" placeholder="ابحث عن أداة..." onkeyup="searchItems()">
+</div>
 
-  <div class="weapon-grid">
+<div class="items" id="itemsGrid">
 
-    <div class="weapon">
-      <div class="weapon-icon">🔪</div>
-      <h3>Default Knife</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+<div class="item"><div class="weapon">🔪</div><h3>Default Knife</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🔫</div><h3>Default Gun</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">❄️</div><h3>Icewing</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🌈</div><h3>Chromatic</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🦇</div><h3>Batwing</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🔥</div><h3>Heat</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🔫</div><h3>Luger</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">💚</div><h3>Seer</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🗡️</div><h3>Slasher</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">💙</div><h3>Pixel</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">💜</div><h3>Virtual</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🌊</div><h3>Tides</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🔫</div><h3>JD</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🔴</div><h3>Amerilaser</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🌸</div><h3>Blossom</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🍬</div><h3>Candy</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🖤</div><h3>Fang</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">💎</div><h3>Gemstone</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">☠️</div><h3>Hallow Scythe</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🔴</div><h3>Ripper</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🌈</div><h3>Spectrum</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">⚔️</div><h3>Eternal III</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🔴</div><h3>Laser</h3><span class="unavailable">غير متوفر</span></div>
+<div class="item"><div class="weapon">🍭</div><h3>Peppermint</h3><span class="unavailable">غير متوفر</span></div>
 
-    <div class="weapon">
-      <div class="weapon-icon">🔫</div>
-      <h3>Default Gun</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+</div>
+</section>
 
-    <div class="weapon">
-      <div class="weapon-icon">❄️</div>
-      <h3>Icewing</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+<section id="calculator">
+<div class="heading">
+<h2>Trade <span>Calculator</span></h2>
+<p>أدخل القيم لمعرفة نتيجة الصفقة.</p>
+</div>
 
-    <div class="weapon">
-      <div class="weapon-icon">🌈</div>
-      <h3>Chromatic</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+<div class="calc">
+<div class="calcgrid">
+<div class="calcbox">
+<h3>عرضك</h3>
+<input id="your" type="number" placeholder="القيمة">
+</div>
+<div class="calcbox">
+<h3>عرض الطرف الآخر</h3>
+<input id="their" type="number" placeholder="القيمة">
+</div>
+</div>
+<button onclick="calculate()">احسب الصفقة</button>
+<div class="result" id="result">أدخل القيم ثم اضغط احسب الصفقة</div>
+</div>
+</section>
 
-    <div class="weapon">
-      <div class="weapon-icon">🦇</div>
-      <h3>Batwing</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+<section id="trade">
+<div class="heading">
+<h2>Start <span>Trading</span></h2>
+<p>جهّز عرضك للتداول.</p>
+</div>
 
-    <div class="weapon">
-      <div class="weapon-icon">🔥</div>
-      <h3>Heat</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+<div class="trade">
+<div class="tradebox">
+<h3>👤 عرضك</h3>
+<p style="color:#666">لا توجد أدوات مضافة</p>
+</div>
 
-    <div class="weapon">
-      <div class="weapon-icon">🔫</div>
-      <h3>Luger</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+<div class="plus">+</div>
 
-    <div class="weapon">
-      <div class="weapon-icon">💚</div>
-      <h3>Seer</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
+<div class="tradebox">
+<h3>🤝 عرض الآخر</h3>
+<p style="color:#666">لا توجد أدوات مضافة</p>
+</div>
+</div>
+</section>
 
-    <div class="weapon">
-      <div class="weapon-icon">🗡️</div>
-      <h3>Slasher</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">💙</div>
-      <h3>Pixel</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">💜</div>
-      <h3>Virtual</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🌊</div>
-      <h3>Tides</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🔫</div>
-      <h3>JD</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🔴</div>
-      <h3>Amerilaser</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🌸</div>
-      <h3>Blossom</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🍬</div>
-      <h3>Candy</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🖤</div>
-      <h3>Fang</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">💎</div>
-      <h3>Gemstone</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">☠️</div>
-      <h3>Hallow Scythe</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🔴</div>
-      <h3>Ripper</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🌈</div>
-      <h3>Spectrum</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">⚔️</div>
-      <h3>Eternal III</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🔴</div>
-      <h3>Laser</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-    <div class="weapon">
-      <div class="weapon-icon">🍭</div>
-      <h3>Peppermint</h3>
-      <div class="unavailable">⊘ غير متوفر</div>
-    </div>
-
-  </div>
-
+<section id="community">
+<div class="cta">
+<h2>Welcome to <span style="color:#ffd21a">Zeno</span></h2>
+<p>منصة MM2 Trade الخاصة بك.</p>
+<a class="btn primary" href="#home">العودة للأعلى ↑</a>
+</div>
 </section>
 
 <footer>
-  © 2026 <strong>Zeno MM2 Trade</strong> — جميع الحقوق محفوظة
+© 2026 <strong>Zeno MM2 Trade</strong> — جميع الحقوق محفوظة
 </footer>
+
+<script>
+function calculate(){
+const a=Number(document.getElementById("your").value);
+const b=Number(document.getElementById("their").value);
+const r=document.getElementById("result");
+
+if(!a||!b){
+r.textContent="أدخل القيمتين أولًا";
+return;
+}
+
+if(b>a) r.textContent="🏆 WIN — الصفقة لصالحك!";
+else if(b===a) r.textContent="🤝 FAIR — الصفقة متساوية!";
+else r.textContent="⚠️ LOSE — العرض أقل من عرضك";
+}
+
+function searchItems(){
+const q=document.getElementById("search").value.toLowerCase();
+document.querySelectorAll(".item").forEach(item=>{
+item.style.display=item.innerText.toLowerCase().includes(q)?"block":"none";
+});
+}
+</script>
 
 </body>
 </html>
