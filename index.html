@@ -1,1 +1,431 @@
 
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zeno MM2 Trade</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #050607;
+  color: white;
+}
+
+/* NAVBAR */
+nav {
+  height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  background: #080909;
+  border-bottom: 1px solid #292929;
+}
+
+.logo {
+  color: #ffd21a;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.logo small {
+  display: block;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.links {
+  display: flex;
+  gap: 28px;
+}
+
+.links a {
+  color: #bbb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.links a:hover {
+  color: #ffd21a;
+}
+
+.login {
+  border: 1px solid #ffd21a;
+  padding: 11px 20px;
+  border-radius: 10px;
+  color: #ffd21a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 95px 20px 75px;
+  background:
+    radial-gradient(circle at center, #3b3000 0%, #101010 35%, #050607 75%);
+}
+
+.badge {
+  display: inline-block;
+  padding: 9px 18px;
+  border: 1px solid #5c4a00;
+  border-radius: 30px;
+  color: #ffd21a;
+  margin-bottom: 25px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  font-size: 65px;
+  font-weight: 900;
+}
+
+.hero h1 span {
+  color: #ffd21a;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 20px auto 30px;
+  color: #999;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.primary,
+.secondary {
+  padding: 15px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.primary {
+  background: #ffd21a;
+  color: #000;
+}
+
+.secondary {
+  border: 1px solid #444;
+  color: white;
+}
+
+/* WEAPONS */
+.weapons {
+  max-width: 1250px;
+  margin: auto;
+  padding: 55px 20px 80px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  color: #ffd21a;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  color: #777;
+}
+
+.weapon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.weapon {
+  background: #101111;
+  border: 1px solid #292929;
+  border-radius: 15px;
+  padding: 22px;
+  text-align: center;
+  transition: .2s;
+}
+
+.weapon:hover {
+  transform: translateY(-5px);
+  border-color: #ffd21a;
+}
+
+.weapon-icon {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 65px;
+  margin-bottom: 12px;
+}
+
+.weapon h3 {
+  margin-bottom: 12px;
+}
+
+.unavailable {
+  display: inline-block;
+  width: 100%;
+  padding: 9px;
+  border-radius: 8px;
+  background: #1c1f21;
+  color: #aaa;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid #242424;
+  text-align: center;
+  padding: 30px;
+  color: #666;
+}
+
+footer strong {
+  color: #ffd21a;
+}
+
+@media(max-width:900px) {
+  .weapon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .links {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+}
+
+@media(max-width:550px) {
+  .weapon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    ZENO
+    <small>MM2 TRADE</small>
+  </div>
+
+  <div class="links">
+    <a href="index.html">الرئيسية</a>
+    <a href="#">التجارة</a>
+    <a href="#">القيم</a>
+    <a href="calculator.html">حاسبة التداول</a>
+    <a href="#">المستخدمين</a>
+  </div>
+
+  <a class="login" href="#">تسجيل الدخول 👤</a>
+</nav>
+
+<section class="hero">
+
+  <div class="badge">✦ THE NEW MM2 TRADING HUB</div>
+
+  <h1>
+    ZENO <span>MM2 TRADE</span>
+  </h1>
+
+  <p>
+    المكان الأفضل للتجارة، معرفة القيم، والبحث عن المتداولين.
+  </p>
+
+  <div class="buttons">
+    <a class="primary" href="#">ابدأ التداول →</a>
+    <a class="secondary" href="#">عرض القيم</a>
+  </div>
+
+</section>
+
+<section class="weapons">
+
+  <div class="section-title">
+    <h2>— جميع الأسلحة —</h2>
+    <p>أسلحة MM2 المعروضة في Zeno Trade</p>
+  </div>
+
+  <div class="weapon-grid">
+
+    <div class="weapon">
+      <div class="weapon-icon">🔪</div>
+      <h3>Default Knife</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🔫</div>
+      <h3>Default Gun</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">❄️</div>
+      <h3>Icewing</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🌈</div>
+      <h3>Chromatic</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🦇</div>
+      <h3>Batwing</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🔥</div>
+      <h3>Heat</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🔫</div>
+      <h3>Luger</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">💚</div>
+      <h3>Seer</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🗡️</div>
+      <h3>Slasher</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">💙</div>
+      <h3>Pixel</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">💜</div>
+      <h3>Virtual</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🌊</div>
+      <h3>Tides</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🔫</div>
+      <h3>JD</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🔴</div>
+      <h3>Amerilaser</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🌸</div>
+      <h3>Blossom</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🍬</div>
+      <h3>Candy</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🖤</div>
+      <h3>Fang</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">💎</div>
+      <h3>Gemstone</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">☠️</div>
+      <h3>Hallow Scythe</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🔴</div>
+      <h3>Ripper</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🌈</div>
+      <h3>Spectrum</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">⚔️</div>
+      <h3>Eternal III</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🔴</div>
+      <h3>Laser</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+    <div class="weapon">
+      <div class="weapon-icon">🍭</div>
+      <h3>Peppermint</h3>
+      <div class="unavailable">⊘ غير متوفر</div>
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+  © 2026 <strong>Zeno MM2 Trade</strong> — جميع الحقوق محفوظة
+</footer>
+
+</body>
+</html>
