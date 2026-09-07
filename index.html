@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeno MM2 Trade</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #070707;
+      color: white;
+      min-height: 100vh;
+    }
+
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 7%;
+      border-bottom: 1px solid #242424;
+      background: #090909;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      color: #ffd21a;
+      letter-spacing: 1px;
+    }
+
+    .links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .links a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    .links a:hover {
+      color: #ffd21a;
+    }
+
+    .login {
+      border: 1px solid #ffd21a;
+      padding: 11px 20px;
+      border-radius: 10px;
+      color: #ffd21a;
+      text-decoration: none;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 110px 20px 80px;
+      background:
+        radial-gradient(circle at center, #302600 0%, #0b0b0b 45%, #070707 75%);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid #4b3d00;
+      border-radius: 30px;
+      color: #ffd21a;
+      margin-bottom: 25px;
+      font-size: 13px;
+    }
+
+    h1 {
+      font-size: 65px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: #ffd21a;
+    }
+
+    .hero p {
+      color: #999;
+      max-width: 600px;
+      margin: 20px auto 35px;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .primary,
+    .secondary {
+      padding: 15px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .primary {
+      background: #ffd21a;
+      color: #000;
+    }
+
+    .secondary {
+      border: 1px solid #333;
+      color: white;
+    }
+
+    .features {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px 90px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #101010;
+      border: 1px solid #242424;
+      border-radius: 18px;
+      padding: 28px;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #ffd21a;
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #888;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      border-top: 1px solid #222;
+      padding: 25px;
+      color: #666;
+    }
+
+    @media (max-width: 800px) {
+      .links {
+        display: none;
+      }
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="logo">ZENO MM2</div>
+
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#">Trade</a>
+      <a href="#">Values</a>
+      <a href="#">Calculator</a>
+      <a href="#">Users</a>
+    </div>
+
+    <a class="login" href="#">Login</a>
+  </nav>
+
+  <section class="hero">
+
+    <div class="badge">✦ THE NEW MM2 TRADING HUB</div>
+
+    <h1>Trade Smarter.<br><span>Trade With Zeno.</span></h1>
+
+    <p>
+      Welcome to Zeno MM2 Trade — a clean and powerful place
+      to discover values, create trades and connect with other traders.
+    </p>
+
+    <div class="buttons">
+      <a class="primary" href="#">Start Trading →</a>
+      <a class="secondary" href="#">View Values</a>
+    </div>
+
+  </section>
+
+  <section class="features">
+
+    <div class="card">
+      <div class="icon">⚖️</div>
+      <h2>Trade Calculator</h2>
+      <p>Check your trade and see if it's a Win, Fair or Lose.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💎</div>
+      <h2>MM2 Values</h2>
+      <p>Browse item values and keep up with the trading market.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🤝</div>
+      <h2>Find Trades</h2>
+      <p>Discover other traders and find the trade you're looking for.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔎</div>
+      <h2>Search</h2>
+      <p>Quickly search through the MM2 trading database.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">👤</div>
+      <h2>Profiles</h2>
+      <p>Create your own trader profile and show what you want.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛡️</div>
+      <h2>Safe Trading</h2>
+      <p>Built with safety and a clean trading experience in mind.</p>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2026 Zeno MM2 Trade — All Rights Reserved
+  </footer>
+
+</body>
+</html>
