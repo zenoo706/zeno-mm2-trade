@@ -1,50 +1,718 @@
-        <h3>GODLY</h3>
-        <span>غير متوفر</span>
-      </div>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <div class="z3-weapon featured">
-        <div class="z3-featured-label">FEATURED</div>
-        <div class="z3-weapon-glow">⚔️</div>
-        <h3>ANCIENT</h3>
-        <span>غير متوفر</span>
-      </div>
+<title>ZENO MM2 TRADE</title>
 
-      <div class="z3-weapon">
-        <div class="z3-weapon-glow">🗡️</div>
-        <h3>CHROMA</h3>
-        <span>غير متوفر</span>
-      </div>
+<style>
+:root{
+  --yellow:#ffd600;
+  --yellow2:#ffea70;
+  --black:#050505;
+  --dark:#0b0b0b;
+  --card:#111111;
+  --line:#252525;
+  --gray:#8b8b8b;
+  --white:#fff;
+}
 
-    </div>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 50% -15%,rgba(255,214,0,.18),transparent 32%),
+    radial-gradient(circle at 10% 40%,rgba(255,214,0,.04),transparent 25%),
+    var(--black);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  overflow-x:hidden;
+}
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.15;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:45px 45px;
+  z-index:0;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+a,
+input{
+  font-family:inherit;
+}
+
+button,
+a{
+  -webkit-tap-highlight-color:transparent;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:99999;
+  height:76px;
+  background:rgba(5,5,5,.88);
+  border-bottom:1px solid #202020;
+  backdrop-filter:blur(18px);
+}
+
+.nav{
+  width:min(1200px,92%);
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  color:var(--yellow);
+  font-size:22px;
+  font-weight:1000;
+  letter-spacing:1px;
+  cursor:pointer;
+}
+
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.navlinks a{
+  color:#999;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.navlinks a:hover{
+  color:var(--yellow);
+}
+
+.login{
+  border:1px solid #665700;
+  color:var(--yellow)!important;
+  padding:10px 16px;
+  border-radius:10px;
+}
+
+section{
+  position:relative;
+  z-index:2;
+  width:min(1200px,92%);
+  margin:auto;
+  scroll-margin-top:95px;
+}
+
+.hero{
+  min-height:680px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+.heroGlow{
+  position:absolute;
+  width:650px;
+  height:650px;
+  border-radius:50%;
+  background:rgba(255,214,0,.09);
+  filter:blur(100px);
+  pointer-events:none;
+}
+
+.heroContent{
+  position:relative;
+  z-index:5;
+  max-width:950px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid #665700;
+  background:rgba(255,214,0,.06);
+  color:var(--yellow);
+  border-radius:999px;
+  padding:10px 18px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:25px;
+  box-shadow:0 0 30px rgba(255,214,0,.05);
+}
+
+.hero h1{
+  font-size:clamp(48px,8vw,88px);
+  line-height:.98;
+  letter-spacing:-5px;
+  font-weight:1000;
+}
+
+.hero h1 span{
+  color:var(--yellow);
+  text-shadow:
+    0 0 20px rgba(255,214,0,.25),
+    0 0 60px rgba(255,214,0,.1);
+}
+
+.heroText{
+  max-width:700px;
+  margin:28px auto;
+  color:#929292;
+  line-height:1.9;
+  font-size:17px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:13px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:160px;
+  padding:15px 25px;
+  border-radius:12px;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.22s;
+  position:relative;
+  z-index:20;
+}
+
+.btn:hover{
+  transform:translateY(-4px);
+}
+
+.btnPrimary{
+  background:var(--yellow);
+  color:#000;
+  box-shadow:0 8px 35px rgba(255,214,0,.12);
+}
+
+.btnPrimary:hover{
+  background:var(--yellow2);
+  box-shadow:0 12px 45px rgba(255,214,0,.22);
+}
+
+.btnSecondary{
+  background:#101010;
+  border:1px solid #303030;
+  color:#fff;
+}
+
+.btnSecondary:hover{
+  border-color:#796800;
+}
+
+.stats{
+  width:min(1100px,92%);
+  margin:-35px auto 0;
+  position:relative;
+  z-index:10;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.stat{
+  background:linear-gradient(145deg,#141414,#0b0b0b);
+  border:1px solid #252525;
+  border-radius:18px;
+  padding:25px 15px;
+  text-align:center;
+  transition:.25s;
+}
+
+.stat:hover{
+  transform:translateY(-5px);
+  border-color:#655600;
+}
+
+.stat strong{
+  display:block;
+  color:var(--yellow);
+  font-size:30px;
+  margin-bottom:7px;
+}
+
+.stat span{
+  color:#777;
+  font-size:12px;
+}
+
+.section{
+  padding:110px 0 20px;
+}
+
+.sectionTitle{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.sectionTitle .mini{
+  color:var(--yellow);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:10px;
+}
+
+.sectionTitle h2{
+  font-size:38px;
+  font-weight:1000;
+}
+
+.sectionTitle h2 span{
+  color:var(--yellow);
+}
+
+.sectionTitle p{
+  color:#777;
+  margin-top:12px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.card{
+  display:block;
+  padding:27px;
+  min-height:190px;
+  border:1px solid #242424;
+  border-radius:19px;
+  background:
+    linear-gradient(145deg,#141414,#090909);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:#756400;
+  box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+
+.cardIcon{
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  background:#1a180c;
+  border:1px solid #403700;
+  font-size:24px;
+  margin-bottom:20px;
+}
+
+.card h3{
+  margin-bottom:9px;
+}
+
+.card p{
+  color:#777;
+  font-size:13px;
+  line-height:1.7;
+}
+
+.search{
+  max-width:650px;
+  margin:0 auto 30px;
+  position:relative;
+}
+
+.search input{
+  width:100%;
+  padding:17px 20px;
+  background:#101010;
+  border:1px solid #292929;
+  border-radius:13px;
+  color:white;
+  outline:none;
+  direction:rtl;
+}
+
+.search input:focus{
+  border-color:#806d00;
+  box-shadow:0 0 0 3px rgba(255,214,0,.05);
+}
+
+.items{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.item{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(145deg,#141414,#090909);
+  border:1px solid #252525;
+  border-radius:18px;
+  padding:20px;
+  text-align:center;
+  transition:.25s;
+}
+
+.item:hover{
+  transform:translateY(-5px);
+  border-color:#6f6000;
+}
+
+.itemTop{
+  position:absolute;
+  top:12px;
+  left:12px;
+  font-size:9px;
+  font-weight:900;
+  color:#777;
+  border:1px solid #292929;
+  border-radius:999px;
+  padding:5px 8px;
+}
+
+.weapon{
+  height:125px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:65px;
+  filter:drop-shadow(0 10px 18px rgba(255,214,0,.08));
+}
+
+.item h3{
+  margin:8px 0 12px;
+  font-size:16px;
+}
+
+.status{
+  display:block;
+  padding:8px;
+  background:#171717;
+  border:1px solid #252525;
+  border-radius:9px;
+  color:#777;
+  font-size:11px;
+  font-weight:900;
+}
+
+.tradeBox{
+  display:grid;
+  grid-template-columns:1fr 70px 1fr;
+  align-items:center;
+  gap:15px;
+}
+
+.tradeSide{
+  min-height:230px;
+  padding:30px;
+  border:1px solid #252525;
+  background:#0e0e0e;
+  border-radius:20px;
+}
+
+.tradeSide h3{
+  color:var(--yellow);
+  margin-bottom:12px;
+}
+
+.tradeSide p{
+  color:#777;
+  line-height:1.7;
+}
+
+.tradeArrow{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:var(--yellow);
+  color:#000;
+  font-size:25px;
+  font-weight:1000;
+}
+
+.calculator{
+  max-width:850px;
+  margin:auto;
+  background:#0e0e0e;
+  border:1px solid #252525;
+  border-radius:22px;
+  padding:30px;
+}
+
+.calcGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+}
+
+.calcInput{
+  background:#090909;
+  border:1px solid #262626;
+  border-radius:15px;
+  padding:20px;
+}
+
+.calcInput label{
+  display:block;
+  color:#aaa;
+  margin-bottom:12px;
+  font-size:13px;
+}
+
+.calcInput input{
+  width:100%;
+  padding:14px;
+  background:#111;
+  border:1px solid #333;
+  border-radius:10px;
+  color:white;
+  outline:none;
+}
+
+.calcInput input:focus{
+  border-color:var(--yellow);
+}
+
+.calcButton{
+  width:100%;
+  border:0;
+  margin-top:18px;
+  padding:16px;
+  border-radius:11px;
+  background:var(--yellow);
+  color:#000;
+  font-weight:1000;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.calcButton:hover{
+  background:var(--yellow2);
+  transform:translateY(-2px);
+}
+
+.calcResult{
+  margin-top:15px;
+  background:#161616;
+  border:1px solid #292929;
+  border-radius:12px;
+  padding:17px;
+  text-align:center;
+  color:var(--yellow);
+  font-weight:900;
+}
+
+.cta{
+  margin-top:110px;
+  margin-bottom:70px;
+  text-align:center;
+  padding:75px 25px;
+  border:1px solid #4d4200;
+  border-radius:25px;
+  background:
+    radial-gradient(circle at center,rgba(255,214,0,.12),transparent 55%),
+    #0b0b0b;
+}
+
+.cta h2{
+  font-size:42px;
+  font-weight:1000;
+  margin-bottom:12px;
+}
+
+.cta h2 span{
+  color:var(--yellow);
+}
+
+.cta p{
+  color:#777;
+  margin-bottom:25px;
+}
+
+footer{
+  position:relative;
+  z-index:5;
+  border-top:1px solid #202020;
+  text-align:center;
+  padding:35px 20px;
+  color:#666;
+  font-size:12px;
+}
+
+footer b{
+  color:var(--yellow);
+}
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .navlinks{
+    display:none;
+  }
+
+  .cards,
+  .items{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero h1{
+    letter-spacing:-3px;
+  }
+}
+
+@media(max-width:600px){
+
+  .hero{
+    min-height:620px;
+  }
+
+  .heroText{
+    font-size:14px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cards,
+  .items,
+  .calcGrid,
+  .tradeBox{
+    grid-template-columns:1fr;
+  }
+
+  .tradeArrow{
+    margin:auto;
+    transform:rotate(90deg);
+  }
+
+  .section{
+    padding-top:85px;
+  }
+
+  .sectionTitle h2{
+    font-size:30px;
+  }
+
+  .cta h2{
+    font-size:32px;
+  }
+
+  .btn{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <a href="#home" class="logo">
+      ZENO MM2 TRADE
+    </a>
+
+    <nav class="navlinks">
+
+      <a href="#home">الرئيسية</a>
+
+      <a href="#trade">Trade</a>
+
+      <a href="#values">القيم</a>
+
+      <a href="#calculator">الحاسبة</a>
+
+      <a href="#community">المجتمع</a>
+
+      <a href="#login" class="login">
+        تسجيل الدخول
+      </a>
+
+    </nav>
 
   </div>
+</header>
 
 
-  <!-- FINAL CTA -->
+<!-- HERO -->
 
-  <div class="z3-final">
+<section id="home" class="hero">
 
-    <div class="z3-final-badge">
-      ZENO
+  <div class="heroGlow"></div>
+
+  <div class="heroContent">
+
+    <div class="badge">
+      ✦ ZENO MM2 TRADING HUB
     </div>
 
-    <h2>
-      READY TO
-      <span>TRADE?</span>
-    </h2>
+    <h1>
+      TRADE SMARTER.<br>
+      <span>TRADE WITH ZENO.</span>
+    </h1>
 
-    <p>
-      كل أدوات Zeno في مكان واحد.
+    <p class="heroText">
+      منصة Zeno MM2 للتداول واستعراض الأدوات والقيم.
+      اكتشف العناصر، قارن التداولات، واستعد لأفضل تجربة MM2.
     </p>
 
-    <div class="z3-final-buttons">
-      <a href="#trade" class="z3-main-btn">
-        ابدأ الآن ⚡
+    <div class="buttons">
+
+      <a href="#trade" class="btn btnPrimary">
+        ابدأ التداول →
       </a>
 
-      <a href="#home" class="z3-outline-btn">
-        ↑ العودة للأعلى
+      <a href="#items" class="btn btnSecondary">
+        استعرض الأدوات
       </a>
+
     </div>
 
   </div>
@@ -52,56 +720,683 @@
 </section>
 
 
-<style>
+<!-- STATS -->
+
+<div class="stats">
+
+  <div class="stat">
+    <strong>500+</strong>
+    <span>عنصر في النظام</span>
+  </div>
+
+  <div class="stat">
+    <strong>100%</strong>
+    <span>واجهة ZENO</span>
+  </div>
+
+  <div class="stat">
+    <strong>24/7</strong>
+    <span>المنصة متاحة</span>
+  </div>
+
+  <div class="stat">
+    <strong>0</strong>
+    <span>عناصر متوفرة الآن</span>
+  </div>
+
+</div>
+
+
+<!-- TOOLS -->
+
+<section id="tools" class="section">
+
+  <div class="sectionTitle">
+
+    <div class="mini">
+      ZENO FEATURES
+    </div>
+
+    <h2>
+      كل شيء في <span>مكان واحد</span>
+    </h2>
+
+    <p>
+      أدوات Zeno المصممة لتجربة تداول أفضل.
+    </p>
+
+  </div>
+
+
+  <div class="cards">
+
+    <a href="#trade" class="card">
+
+      <div class="cardIcon">
+        🤝
+      </div>
+
+      <h3>Trade</h3>
+
+      <p>
+        جهز عرض التداول واستعرض العناصر التي تريد تبادلها.
+      </p>
+
+    </a>
+
+
+    <a href="#calculator" class="card">
+
+      <div class="cardIcon">
+        ⚖️
+      </div>
+
+      <h3>Calculator</h3>
+
+      <p>
+        قارن القيم واعرف نتيجة التداول بسهولة.
+      </p>
+
+    </a>
+
+
+    <a href="#values" class="card">
+
+      <div class="cardIcon">
+        💎
+      </div>
+
+      <h3>Values</h3>
+
+      <p>
+        تصفح قسم القيم والعناصر الخاصة بـ MM2.
+      </p>
+
+    </a>
+
+
+    <a href="#items" class="card">
+
+      <div class="cardIcon">
+        🔎
+      </div>
+
+      <h3>Search</h3>
+
+      <p>
+        ابحث عن السلاح الذي تريده بسرعة.
+      </p>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ITEMS -->
+
+<section id="items" class="section">
+
+  <div class="sectionTitle">
+
+    <div class="mini">
+      MM2 INVENTORY
+    </div>
+
+    <h2>
+      <span>MM2</span> ITEMS
+    </h2>
+
+    <p>
+      جميع العناصر المعروضة حاليًا غير متوفرة.
+    </p>
+
+  </div>
+
+
+  <div class="search">
+
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="🔎 ابحث عن سلاح..."
+      oninput="searchItems()"
+    >
+
+  </div>
+
+
+  <div class="items" id="itemsGrid">
+
+
+    <div class="item" data-name="Chroma">
+
+      <span class="itemTop">
+        CHROMA
+      </span>
+
+      <div class="weapon">
+        🔪
+      </div>
+
+      <h3>Chroma</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+    <div class="item" data-name="Godly">
+
+      <span class="itemTop">
+        GODLY
+      </span>
+
+      <div class="weapon">
+        ⚔️
+      </div>
+
+      <h3>Godly</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+    <div class="item" data-name="Ancient">
+
+      <span class="itemTop">
+        ANCIENT
+      </span>
+
+      <div class="weapon">
+        🗡️
+      </div>
+
+      <h3>Ancient</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+    <div class="item" data-name="Vintage">
+
+      <span class="itemTop">
+        VINTAGE
+      </span>
+
+      <div class="weapon">
+        🔫
+      </div>
+
+      <h3>Vintage</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+    <div class="item" data-name="Unique">
+
+      <span class="itemTop">
+        UNIQUE
+      </span>
+
+      <div class="weapon">
+        💎
+      </div>
+
+      <h3>Unique</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+    <div class="item" data-name="Godly Knife">
+
+      <span class="itemTop">
+        GODLY
+      </span>
+
+      <div class="weapon">
+        🔪
+      </div>
+
+      <h3>Godly Knife</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+    <div class="item" data-name="Godly Gun">
+
+      <span class="itemTop">
+        GODLY
+      </span>
+
+      <div class="weapon">
+        🔫
+      </div>
+
+      <h3>Godly Gun</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+    <div class="item" data-name="Chroma Weapon">
+
+      <span class="itemTop">
+        CHROMA
+      </span>
+
+      <div class="weapon">
+        🌈
+      </div>
+
+      <h3>Chroma Weapon</h3>
+
+      <span class="status">
+        غير متوفر
+      </span>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- TRADE -->
+
+<section id="trade" class="section">
+
+  <div class="sectionTitle">
+
+    <div class="mini">
+      TRADE CENTER
+    </div>
+
+    <h2>
+      <span>TRADE</span> CENTER
+    </h2>
+
+    <p>
+      جهز عرض التداول الخاص بك.
+    </p>
+
+  </div>
+
+
+  <div class="tradeBox">
+
+    <div class="tradeSide">
+
+      <h3>
+        عرضك
+      </h3>
+
+      <p>
+        أضف العناصر التي تريد عرضها في التداول.
+      </p>
+
+    </div>
+
+
+    <div class="tradeArrow">
+      ⇄
+    </div>
+
+
+    <div class="tradeSide">
+
+      <h3>
+        العرض الآخر
+      </h3>
+
+      <p>
+        أضف العناصر التي تريد استلامها.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- VALUES -->
+
+<section id="values" class="section">
+
+  <div class="sectionTitle">
+
+    <div class="mini">
+      MM2 VALUES
+    </div>
+
+    <h2>
+      <span>ITEM</span> VALUES
+    </h2>
+
+    <p>
+      معلومات القيم ستكون متاحة قريبًا.
+    </p>
+
+  </div>
+
+
+  <div class="calculator">
+
+    <div class="calcResult">
+      💎 جميع العناصر غير متوفرة حاليًا
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CALCULATOR -->
+
+<section id="calculator" class="section">
+
+  <div class="sectionTitle">
+
+    <div class="mini">
+      TRADE CALCULATOR
+    </div>
+
+    <h2>
+      TRADE <span>CALCULATOR</span>
+    </h2>
+
+    <p>
+      أدخل القيمتين لمعرفة الفرق.
+    </p>
+
+  </div>
+
+
+  <div class="calculator">
+
+    <div class="calcGrid">
+
+      <div class="calcInput">
+
+        <label>
+          قيمتك
+        </label>
+
+        <input
+          id="value1"
+          type="number"
+          placeholder="مثال: 100"
+        >
+
+      </div>
+
+
+      <div class="calcInput">
+
+        <label>
+          القيمة الأخرى
+        </label>
+
+        <input
+          id="value2"
+          type="number"
+          placeholder="مثال: 120"
+        >
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="calcButton"
+      onclick="calculateTrade()"
+    >
+      احسب التداول
+    </button>
+
+
+    <div
+      class="calcResult"
+      id="calcResult"
+    >
+      أدخل القيم واضغط على احسب التداول
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- COMMUNITY -->
+
+<section id="community" class="section">
+
+  <div class="cta">
+
+    <h2>
+      ZENO <span>COMMUNITY</span>
+    </h2>
+
+    <p>
+      مجتمع Zeno MM2 قادم قريبًا 🔥
+    </p>
+
+    <a href="#home" class="btn btnPrimary">
+      العودة للرئيسية ↑
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- LOGIN -->
+
+<section id="login" class="section">
+
+  <div class="cta">
+
+    <h2>
+      <span>LOGIN</span>
+    </h2>
+
+    <p>
+      نظام تسجيل الدخول سيكون متاحًا قريبًا.
+    </p>
+
+    <a href="#home" class="btn btnPrimary">
+      العودة للرئيسية
+    </a>
+
+  </div>
+
+</section>
+
+
+<footer>
+
+  © 2026
+  <b>ZENO MM2 TRADE</b>
+  — جميع الحقوق محفوظة
+
+</footer>
+
+
+<script>
 
 /* =========================
-   ZENO V3
-   ========================= */
+   SEARCH
+========================= */
 
-.z3-home{
-  --gold:#ffd21a;
-  --gold2:#ffb800;
-  --black:#050505;
-  --card:#0c0c0c;
-  --line:#202020;
+function searchItems(){
 
-  position:relative;
-  overflow:hidden;
-  background:#050505;
-  color:#fff;
-  padding-bottom:100px;
+  const input =
+    document
+      .getElementById("searchInput")
+      .value
+      .toLowerCase()
+      .trim();
+
+  const items =
+    document.querySelectorAll(".item");
+
+  items.forEach(function(item){
+
+    const name =
+      item
+        .getAttribute("data-name")
+        .toLowerCase();
+
+    item.style.display =
+      name.includes(input)
+        ? ""
+        : "none";
+
+  });
+
 }
 
 
-/* BACKGROUND */
+/* =========================
+   CALCULATOR
+========================= */
 
-.z3-bg{
-  position:absolute;
-  width:800px;
-  height:800px;
-  left:50%;
-  top:-350px;
-  transform:translateX(-50%);
-  background:radial-gradient(
-    circle,
-    #ffd21a20 0%,
-    #ffd21a08 30%,
-    transparent 68%
-  );
-  pointer-events:none;
+function calculateTrade(){
+
+  const first =
+    Number(
+      document.getElementById("value1").value
+    );
+
+  const second =
+    Number(
+      document.getElementById("value2").value
+    );
+
+  const result =
+    document.getElementById("calcResult");
+
+
+  if(
+    document.getElementById("value1").value === "" ||
+    document.getElementById("value2").value === ""
+  ){
+
+    result.textContent =
+      "⚠️ أدخل القيمتين أولًا";
+
+    return;
+  }
+
+
+  const difference =
+    second - first;
+
+
+  if(difference > 0){
+
+    result.textContent =
+      "🔥 القيمة الأخرى أعلى بـ " +
+      difference;
+
+  }
+
+  else if(difference < 0){
+
+    result.textContent =
+      "⚠️ قيمتك أعلى بـ " +
+      Math.abs(difference);
+
+  }
+
+  else{
+
+    result.textContent =
+      "⚖️ التداول متساوي";
+
+  }
+
 }
 
-.z3-grid{
-  position:absolute;
-  inset:0;
-  opacity:.08;
-  background-image:
-    linear-gradient(#fff 1px,transparent 1px),
-    linear-gradient(90deg,#fff 1px,transparent 1px);
-  background-size:70px 70px;
-  mask-image:linear-gradient(
-    to bottom,
-    black,
-    transparent 75%
-  );
-  pointer-events:none;
+
+/* =========================
+   SMOOTH NAVIGATION
+========================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const links =
+      document.querySelectorAll(
+        'a[href^="#"]'
+      );
+
+    links.forEach(function(link){
+
+      link.addEventListener(
+        "click",
+        function(event){
+
+          const id =
+            this.getAttribute("href");
+
+          const target =
+            document.querySelector(id);
+
+          if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+              behavior:"smooth",
+              block:"start"
+            });
+
+            history.replaceState(
+              null,
+              "",
+              id
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+  }
+);
+
+</script>
+
+</body>
+</html>
