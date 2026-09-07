@@ -1,1 +1,1066 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZENO MM2 TRADE</title>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Arial,Tahoma,sans-serif;
+  background:#050505;
+  color:#fff;
+  line-height:1.7;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:rgba(5,5,5,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #222;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:18px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  color:#ffc107;
+  font-size:22px;
+  font-weight:900;
+}
+
+.links{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+
+.links a{
+  padding:8px 12px;
+  border-radius:10px;
+  color:#bbb;
+  font-weight:bold;
+}
+
+.links a:hover{
+  background:#ffc107;
+  color:#000;
+}
+
+.hero{
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:80px 20px;
+  background:
+    radial-gradient(circle at center,#2a2108 0%,#050505 45%);
+}
+
+.hero-content{max-width:900px}
+
+.badge{
+  display:inline-block;
+  padding:7px 15px;
+  border:1px solid #765c00;
+  border-radius:30px;
+  color:#ffc107;
+  background:#171204;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:clamp(45px,8vw,85px);
+  line-height:1;
+  margin-bottom:25px;
+  font-weight:1000;
+}
+
+h1 span,.gold{color:#ffc107}
+
+.hero p{
+  color:#999;
+  font-size:18px;
+  max-width:750px;
+  margin:0 auto 30px;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 25px;
+  border-radius:13px;
+  font-weight:900;
+  border:1px solid #765c00;
+}
+
+.primary{
+  background:#ffc107;
+  color:#000;
+}
+
+.secondary{
+  background:#111;
+  color:#fff;
+}
+
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.title{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#777;
+  margin-bottom:35px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.stat{
+  text-align:center;
+  background:#0d0d0d;
+  border:1px solid #202020;
+  padding:25px;
+  border-radius:18px;
+}
+
+.stat strong{
+  display:block;
+  color:#ffc107;
+  font-size:32px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.card{
+  background:#0d0d0d;
+  border:1px solid #222;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+}
+
+.card:hover{
+  border-color:#ffc107;
+  transform:translateY(-3px);
+}
+
+.icon{
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#777;
+  font-size:14px;
+}
+
+.panel{
+  max-width:700px;
+  margin:auto;
+  background:#0d0d0d;
+  border:1px solid #222;
+  border-radius:20px;
+  padding:30px;
+}
+
+input{
+  width:100%;
+  background:#050505;
+  color:#fff;
+  border:1px solid #292929;
+  border-radius:11px;
+  padding:13px;
+  margin:7px 0 15px;
+  outline:none;
+}
+
+input:focus{border-color:#ffc107}
+
+.full{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:11px;
+  background:#ffc107;
+  color:#000;
+  font-weight:900;
+}
+
+.message{
+  margin-top:15px;
+  text-align:center;
+  color:#ffc107;
+  min-height:25px;
+}
+
+.profile{
+  text-align:center;
+}
+
+.avatar{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#ffc107;
+  color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 15px;
+  font-size:35px;
+  font-weight:900;
+}
+
+.hidden{display:none!important}
+
+.item{
+  background:#0d0d0d;
+  border:1px solid #222;
+  border-radius:18px;
+  padding:18px;
+}
+
+.item-image{
+  height:150px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:60px;
+  background:#090909;
+  border-radius:14px;
+  margin-bottom:12px;
+}
+
+.unavailable{
+  text-align:center;
+  background:#161616;
+  color:#777;
+  padding:7px;
+  border-radius:9px;
+  margin-top:10px;
+}
+
+.trade-box{
+  background:#0d0d0d;
+  border:1px solid #222;
+  border-radius:18px;
+  padding:20px;
+  margin-top:15px;
+}
+
+.status{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:8px;
+  background:#171717;
+  color:#ffc107;
+  font-size:13px;
+}
+
+footer{
+  text-align:center;
+  color:#666;
+  padding:30px;
+  border-top:1px solid #181818;
+}
+
+@media(max-width:850px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:1fr}
+  .nav{flex-direction:column}
+}
+
+@media(max-width:550px){
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<a class="logo" href="#home">ZENO MM2 TRADE</a>
+
+<nav class="links">
+<a href="#home">الرئيسية</a>
+<a href="#items">الأسلحة</a>
+<a href="#trade">Trade</a>
+<a href="#profile">حسابي</a>
+<a href="#login">تسجيل الدخول</a>
+</nav>
+</div>
+</header>
+
+<section class="hero" id="home">
+<div class="hero-content">
+
+<div class="badge">✦ ZENO MM2 TRADING HUB</div>
+
+<h1>
+TRADE SMARTER.<br>
+TRADE WITH <span>ZENO.</span>
+</h1>
+
+<p>
+منصة تداول MM2 حقيقية للحسابات والملفات الشخصية
+والـInventory وطلبات الـTrade.
+</p>
+
+<div class="buttons">
+<a class="btn primary" href="#login">🚀 ابدأ الآن</a>
+<a class="btn secondary" href="#items">🔪 الأسلحة</a>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+<div class="stats">
+
+<div class="stat">
+<strong>500+</strong>
+<span>أداة</span>
+</div>
+
+<div class="stat">
+<strong>0</strong>
+<span>أدوات متوفرة حاليًا</span>
+</div>
+
+<div class="stat">
+<strong>ZENO</strong>
+<span>Trading Platform</span>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="trade">
+<h2 class="title">🤝 Trade</h2>
+<p class="subtitle">أرسل طلب تداول للاعب آخر</p>
+
+<div class="panel">
+
+<label>Roblox Username للطرف الآخر</label>
+<input id="tradeUsername" placeholder="مثال: RobloxPlayer">
+
+<label>رسالة التداول</label>
+<input id="tradeMessage" placeholder="وش تبي تتبادل؟">
+
+<button class="full" onclick="sendTrade()">
+إرسال طلب Trade
+</button>
+
+<div id="tradeMessageResult" class="message"></div>
+
+</div>
+</section>
+
+<section class="section" id="login">
+
+<h2 class="title">🔐 حساب ZENO</h2>
+<p class="subtitle">أنشئ حسابك أو سجل دخولك</p>
+
+<div class="panel">
+
+<label>Username</label>
+<input id="username" placeholder="اسمك في ZENO">
+
+<label>Roblox Username</label>
+<input id="robloxUsername" placeholder="اسمك في Roblox">
+
+<label>Email</label>
+<input id="email" type="email" placeholder="email@example.com">
+
+<label>Password</label>
+<input id="password" type="password" placeholder="كلمة المرور">
+
+<div class="buttons">
+<button class="btn primary" onclick="signup()">إنشاء حساب</button>
+<button class="btn secondary" onclick="login()">تسجيل الدخول</button>
+</div>
+
+<div id="authMessage" class="message"></div>
+
+</div>
+</section>
+
+<section class="section hidden" id="profile">
+
+<h2 class="title">👤 حسابي</h2>
+
+<div class="panel profile">
+
+<div class="avatar" id="avatarLetter">Z</div>
+
+<h2 id="profileUsername">...</h2>
+
+<p>
+Roblox:
+<strong class="gold" id="profileRoblox">...</strong>
+</p>
+
+<p id="profileBio">عضو في ZENO MM2 Trade</p>
+
+<br>
+
+<button class="full" onclick="logout()">
+تسجيل الخروج
+</button>
+
+</div>
+
+<br>
+
+<div class="panel">
+<h3>📦 Inventory</h3>
+<p style="color:#777;margin:10px 0">
+أضف الأسلحة التي تملكها إلى حسابك.
+</p>
+
+<input id="itemName" placeholder="اسم السلاح">
+<input id="itemType" placeholder="نوع السلاح">
+
+<button class="full" onclick="addItem()">
++ إضافة للسلة
+</button>
+
+<div id="inventoryList"></div>
+</div>
+
+<br>
+
+<div class="panel">
+<h3>🤝 طلبات التداول</h3>
+<div id="tradeList">
+لا توجد طلبات حاليًا.
+</div>
+</div>
+
+</section>
+
+<section class="section" id="items">
+
+<h2 class="title">🔪 MM2 Items</h2>
+<p class="subtitle">الأسلحة الموجودة حاليًا غير متوفرة للتداول المباشر</p>
+
+<div class="grid">
+
+<div class="item">
+<div class="item-image">🔪</div>
+<h3>Chroma Godly</h3>
+<p class="gold">Godly</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+<div class="item">
+<div class="item-image">🦇</div>
+<h3>Batwing</h3>
+<p class="gold">Ancient</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+<div class="item">
+<div class="item-image">🌲</div>
+<h3>Elderwood Scythe</h3>
+<p class="gold">Ancient</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+<div class="item">
+<div class="item-image">💡</div>
+<h3>Lightbringer</h3>
+<p class="gold">Godly</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+<div class="item">
+<div class="item-image">🌑</div>
+<h3>Darkbringer</h3>
+<p class="gold">Godly</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+<div class="item">
+<div class="item-image">💀</div>
+<h3>Deathshard</h3>
+<p class="gold">Godly</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+<div class="item">
+<div class="item-image">🔫</div>
+<h3>Luger</h3>
+<p class="gold">Godly</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+<div class="item">
+<div class="item-image">❤️</div>
+<h3>Red Luger</h3>
+<p class="gold">Godly</p>
+<div class="unavailable">غير متوفر</div>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 ZENO MM2 TRADE
+</footer>
+
+<script>
+
+/* ==============================
+   SUPABASE
+============================== */
+
+const SUPABASE_URL =
+"https://zjwwehmqwsnbykukmnmp.supabase.co";
+
+/*
+  الصق Publishable / anon key هنا
+  بدل YOUR_PUBLISHABLE_KEY
+*/
+
+const SUPABASE_KEY =
+"YOUR_PUBLISHABLE_KEY";
+
+const supabaseClient =
+supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+
+/* ==============================
+   SIGN UP
+============================== */
+
+async function signup(){
+
+  const username =
+    document.getElementById("username").value.trim();
+
+  const roblox =
+    document.getElementById("robloxUsername").value.trim();
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const message =
+    document.getElementById("authMessage");
+
+  if(!username || !roblox || !email || !password){
+
+    message.textContent =
+      "⚠️ عبّ كل الخانات أولًا";
+
+    return;
+  }
+
+  if(password.length < 6){
+
+    message.textContent =
+      "⚠️ كلمة المرور لازم تكون 6 أحرف على الأقل";
+
+    return;
+  }
+
+  message.textContent =
+    "⏳ جاري إنشاء الحساب...";
+
+  const {data,error} =
+    await supabaseClient.auth.signUp({
+      email:email,
+      password:password
+    });
+
+  if(error){
+
+    message.textContent =
+      "❌ " + error.message;
+
+    return;
+  }
+
+  if(!data.user){
+
+    message.textContent =
+      "❌ لم يتم إنشاء المستخدم";
+
+    return;
+  }
+
+  const {error:profileError} =
+    await supabaseClient
+      .from("profiles")
+      .insert({
+        id:data.user.id,
+        username:username,
+        roblox_username:roblox
+      });
+
+  if(profileError){
+
+    message.textContent =
+      "⚠️ الحساب أُنشئ لكن الملف الشخصي لم يُحفظ: "
+      + profileError.message;
+
+    return;
+  }
+
+  message.textContent =
+    "✅ تم إنشاء حساب ZENO بنجاح!";
+
+  await loadProfile();
+}
+
+
+/* ==============================
+   LOGIN
+============================== */
+
+async function login(){
+
+  const email =
+    document.getElementById("email").value.trim();
+
+  const password =
+    document.getElementById("password").value;
+
+  const message =
+    document.getElementById("authMessage");
+
+  if(!email || !password){
+
+    message.textContent =
+      "⚠️ أدخل الإيميل وكلمة المرور";
+
+    return;
+  }
+
+  message.textContent =
+    "⏳ جاري تسجيل الدخول...";
+
+  const {error} =
+    await supabaseClient.auth.signInWithPassword({
+      email:email,
+      password:password
+    });
+
+  if(error){
+
+    message.textContent =
+      "❌ " + error.message;
+
+    return;
+  }
+
+  message.textContent =
+    "✅ تم تسجيل الدخول!";
+
+  await loadProfile();
+}
+
+
+/* ==============================
+   PROFILE
+============================== */
+
+async function loadProfile(){
+
+  const {data:{user}} =
+    await supabaseClient.auth.getUser();
+
+  if(!user){
+
+    document
+      .getElementById("profile")
+      .classList.add("hidden");
+
+    return;
+  }
+
+  const {data,error} =
+    await supabaseClient
+      .from("profiles")
+      .select("*")
+      .eq("id",user.id)
+      .single();
+
+  if(error){
+
+    console.log(error);
+    return;
+  }
+
+  document
+    .getElementById("profile")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("profileUsername")
+    .textContent = data.username;
+
+  document
+    .getElementById("profileRoblox")
+    .textContent =
+      data.roblox_username || "غير مضاف";
+
+  document
+    .getElementById("avatarLetter")
+    .textContent =
+      data.username.charAt(0).toUpperCase();
+
+  await loadInventory();
+  await loadTrades();
+}
+
+
+/* ==============================
+   LOGOUT
+============================== */
+
+async function logout(){
+
+  await supabaseClient.auth.signOut();
+
+  document
+    .getElementById("profile")
+    .classList.add("hidden");
+
+  location.hash = "home";
+}
+
+
+/* ==============================
+   INVENTORY
+============================== */
+
+async function addItem(){
+
+  const itemName =
+    document.getElementById("itemName").value.trim();
+
+  const itemType =
+    document.getElementById("itemType").value.trim();
+
+  const {data:{user}} =
+    await supabaseClient.auth.getUser();
+
+  if(!user){
+
+    alert("سجل دخول أولًا");
+    return;
+  }
+
+  if(!itemName){
+
+    alert("اكتب اسم السلاح");
+    return;
+  }
+
+  const {error} =
+    await supabaseClient
+      .from("inventory")
+      .insert({
+        user_id:user.id,
+        item_name:itemName,
+        item_type:itemType || "Unknown"
+      });
+
+  if(error){
+
+    alert("خطأ: " + error.message);
+    return;
+  }
+
+  document.getElementById("itemName").value="";
+  document.getElementById("itemType").value="";
+
+  await loadInventory();
+}
+
+
+async function loadInventory(){
+
+  const {data:{user}} =
+    await supabaseClient.auth.getUser();
+
+  if(!user)return;
+
+  const {data,error} =
+    await supabaseClient
+      .from("inventory")
+      .select("*")
+      .eq("user_id",user.id)
+      .order("created_at",{ascending:false});
+
+  if(error)return;
+
+  const box =
+    document.getElementById("inventoryList");
+
+  box.innerHTML="";
+
+  if(!data.length){
+
+    box.innerHTML =
+      '<p style="color:#777;margin-top:15px">Inventory فاضي.</p>';
+
+    return;
+  }
+
+  data.forEach(item=>{
+
+    const div =
+      document.createElement("div");
+
+    div.className="trade-box";
+
+    div.innerHTML =
+      "🔪 <strong>"
+      + escapeHtml(item.item_name)
+      + "</strong><br>"
+      + '<span class="status">'
+      + escapeHtml(item.item_type)
+      + "</span>";
+
+    box.appendChild(div);
+  });
+}
+
+
+/* ==============================
+   SEND TRADE
+============================== */
+
+async function sendTrade(){
+
+  const username =
+    document
+      .getElementById("tradeUsername")
+      .value
+      .trim();
+
+  const message =
+    document
+      .getElementById("tradeMessage")
+      .value
+      .trim();
+
+  const result =
+    document.getElementById("tradeMessageResult");
+
+  const {data:{user}} =
+    await supabaseClient.auth.getUser();
+
+  if(!user){
+
+    result.textContent =
+      "🔐 لازم تسجل دخول أولًا";
+
+    return;
+  }
+
+  if(!username){
+
+    result.textContent =
+      "⚠️ اكتب Roblox Username";
+
+    return;
+  }
+
+  const {data:receiver,error:findError} =
+    await supabaseClient
+      .from("profiles")
+      .select("id,username,roblox_username")
+      .eq("roblox_username",username)
+      .single();
+
+  if(findError || !receiver){
+
+    result.textContent =
+      "❌ ما لقينا لاعب بهذا الـRoblox Username";
+
+    return;
+  }
+
+  if(receiver.id === user.id){
+
+    result.textContent =
+      "😂 ما تقدر ترسل Trade لنفسك";
+
+    return;
+  }
+
+  const {error} =
+    await supabaseClient
+      .from("trades")
+      .insert({
+        sender_id:user.id,
+        receiver_id:receiver.id,
+        message:message
+      });
+
+  if(error){
+
+    result.textContent =
+      "❌ " + error.message;
+
+    return;
+  }
+
+  result.textContent =
+    "✅ تم إرسال طلب Trade إلى "
+    + receiver.username;
+}
+
+
+/* ==============================
+   LOAD TRADES
+============================== */
+
+async function loadTrades(){
+
+  const {data:{user}} =
+    await supabaseClient.auth.getUser();
+
+  if(!user)return;
+
+  const {data,error} =
+    await supabaseClient
+      .from("trades")
+      .select("*")
+      .or(
+        "sender_id.eq."+user.id+
+        ",receiver_id.eq."+user.id
+      )
+      .order("created_at",{ascending:false});
+
+  if(error)return;
+
+  const box =
+    document.getElementById("tradeList");
+
+  box.innerHTML="";
+
+  if(!data.length){
+
+    box.textContent =
+      "لا توجد طلبات حاليًا.";
+
+    return;
+  }
+
+  data.forEach(trade=>{
+
+    const div =
+      document.createElement("div");
+
+    div.className="trade-box";
+
+    div.innerHTML =
+      "🤝 <strong>Trade Request</strong><br>"
+      + '<span class="status">'
+      + escapeHtml(trade.status)
+      + "</span><br>"
+      + "<small>"
+      + escapeHtml(trade.message || "")
+      + "</small>";
+
+    box.appendChild(div);
+  });
+}
+
+
+/* ==============================
+   حماية النصوص
+============================== */
+
+function escapeHtml(text){
+
+  return String(text)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+/* ==============================
+   START
+============================== */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  async function(){
+
+    const {data} =
+      await supabaseClient.auth.getSession();
+
+    if(data.session){
+
+      await loadProfile();
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
+const SUPABASE_URL =
+"https://zjwwehmqwsnbykukmnmp.supabase.co";
+
+const SUPABASE_KEY =
+"YOUR_PUBLISHABLE_KEY";
+YOUR_PUBLISHABLE_KEY
